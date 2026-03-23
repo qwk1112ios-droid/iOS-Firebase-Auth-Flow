@@ -1,0 +1,50 @@
+# =========================
+# Xcode
+# =========================
+DerivedData/
+build/
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+
+# =========================
+# Swift Package Manager
+# =========================
+.build/
+Packages/
+Package.resolved
+
+# =========================
+# CocoaPods (just in case)
+# =========================
+Pods/
+
+# =========================
+# Firebase / Secrets
+# =========================
+GoogleService-Info.plist
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Fastlane (optional future)
+# =========================
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+
+# =========================
+# Temporary files
+# =========================
+*.swp
+*.tmp
