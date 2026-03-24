@@ -4,7 +4,7 @@ A production-ready authentication flow built with **SwiftUI** and **Firebase**, 
 
 ---
 
-## 🚀 Features
+## Features
 
 * Email / Password Authentication
 * Google Sign-In
@@ -17,7 +17,7 @@ A production-ready authentication flow built with **SwiftUI** and **Firebase**, 
 
 ---
 
-## 🧠 Architecture
+##  Architecture
 
 This project follows a clean and scalable structure:
 
@@ -29,7 +29,7 @@ This project follows a clean and scalable structure:
 
 ---
 
-## 🔥 Edge Cases Handled
+##  Edge Cases Handled
 
 This project focuses on real-world scenarios often missed in tutorials:
 
@@ -41,7 +41,7 @@ This project focuses on real-world scenarios often missed in tutorials:
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 * Swift
 * SwiftUI
@@ -53,7 +53,7 @@ This project focuses on real-world scenarios often missed in tutorials:
 
 ---
 
-## ⚙️ Setup
+##  Setup
 
 1. Clone the repository
 
@@ -78,7 +78,7 @@ git clone https://github.com/your-username/iOS-Firebase-Auth-Flow.git
 
 ---
 
-## 🔐 Important Notes
+##  Important Notes
 
 * `GoogleService-Info.plist` is intentionally ignored for security reasons
 * Make sure to configure Firebase properly before running the project
@@ -86,13 +86,13 @@ git clone https://github.com/your-username/iOS-Firebase-Auth-Flow.git
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 *Add screenshots here (Login, Sign Up, Home, etc.)*
 
 ---
 
-## 💡 Future Improvements
+##  Future Improvements
 
 * Unit tests for AuthManager
 * UI tests for authentication flow
@@ -101,7 +101,7 @@ git clone https://github.com/your-username/iOS-Firebase-Auth-Flow.git
 
 ---
 
-## 👤 Author
+## 👩🏻‍💻 Author
 
 **Amel Sbaihi**
 Senior iOS Engineer
