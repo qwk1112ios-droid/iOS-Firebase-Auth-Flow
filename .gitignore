@@ -48,3 +48,4 @@ fastlane/screenshots/
 # =========================
 *.swp
 *.tmp
+GoogleService-Info.plist
