@@ -52,3 +52,14 @@ extension AuthenticationManager {
 
     }
 }
+
+extension AuthenticationManager{
+    
+    // MARK: - Auth State Updates Listner
+    // SignIn Anonymously function
+    func signInAnonymously() async throws -> AuthDataResult {
+        let result = try await Auth.auth().signInAnonymously()
+        print("FirebaseAuthSuccess: Sign in anonymously, UID: \(result.user.uid)")
+        return result
+    }
+}
