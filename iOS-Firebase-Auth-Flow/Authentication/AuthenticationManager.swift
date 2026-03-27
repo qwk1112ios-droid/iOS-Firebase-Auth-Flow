@@ -53,13 +53,34 @@ extension AuthenticationManager {
     }
 }
 
-extension AuthenticationManager{
-    
+extension AuthenticationManager {
+
     // MARK: - Auth State Updates Listner
     // SignIn Anonymously function
     func signInAnonymously() async throws -> AuthDataResult {
         let result = try await Auth.auth().signInAnonymously()
-        print("FirebaseAuthSuccess: Sign in anonymously, UID: \(result.user.uid)")
+        print(
+            "FirebaseAuthSuccess: Sign in anonymously, UID: \(result.user.uid)"
+        )
         return result
+    }
+}
+
+extension AuthenticationManager {
+
+    // MARK: - SignOut
+    // SignIn Anonymously function
+    func signOut() throws {
+        if Auth.auth().currentUser != nil {
+            do {
+                // TODO: Sign out from signed-in Provider.
+                try Auth.auth().signOut()
+            } catch let error as NSError {
+                print(
+                    "FirebaseAuthError: failed to sign out from Firebase, \(error)"
+                )
+                throw error
+            }
+        }
     }
 }

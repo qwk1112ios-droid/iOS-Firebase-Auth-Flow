@@ -33,7 +33,7 @@ struct WelcomePageView: View {
                     if authManager.authState == .signedOut {
                         Button {
                             Task {
-                                await signInAnonymously()
+                                await handleSignInAnonymously()
                             }
 
                         } label: {
@@ -64,7 +64,7 @@ struct WelcomePageView: View {
 extension WelcomePageView {
     //MARK: -SignIn Anonymously
     // SignInAnonymously funciton
-    func signInAnonymously() async {
+    func handleSignInAnonymously() async {
         do {
             let result = try await authManager.signInAnonymously()
             print("SignInAnonymouslySuccess: \(result.user.uid)")

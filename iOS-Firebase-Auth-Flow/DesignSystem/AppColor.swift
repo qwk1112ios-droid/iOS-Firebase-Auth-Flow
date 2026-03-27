@@ -14,4 +14,10 @@ extension Color {
         green: 185 / 255,
         blue: 195 / 255
     )
+
+    static let appButton = Color(
+        red: 0.72,
+        green: 0.70,
+        blue: 0.82
+    )
 }

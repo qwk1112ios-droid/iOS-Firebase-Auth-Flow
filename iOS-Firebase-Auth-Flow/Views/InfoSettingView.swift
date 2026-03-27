@@ -5,21 +5,68 @@
 //  Created by Amel Sbaihi on 3/24/26.
 //
 
+import FirebaseAuth
 import SwiftUI
 
 struct InfoSettingView: View {
     @Environment(AuthenticationManager.self) var authManager
-    
+
     var body: some View {
         NavigationStack {
+
             ZStack {
-                Text("user info 📲 👥")
+                FluidModernBackground()
+                VStack {
+                    if authManager.authState == .authenticated {
+                        Text(
+                            "user: \(authManager.user?.uid ?? "Anonymous User")"
+                        )
+                        .font(.headline)
+                        .padding()
+
+                        Button {
+                            handleSignOut()
+                        } label: {
+                            HStack(spacing: 4) {
+                                Text("SignOut demo only")
+                                    .font(.body.bold())
+
+                                Text("- not functional")
+                                    .font(.footnote)
+                                    .foregroundStyle(.white.opacity(0.7))
+
+                            }
+                            .foregroundStyle(Color.white)
+                            .frame(width: 260, height: 45)
+                            .background(Color.appButton)
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(
+                                        Color.white.opacity(0.25),
+                                        lineWidth: 1
+                                    )
+                            )
+                        }
+                    }
+
+                }
             }
 
             .navigationTitle("Info&Settings")
             .navigationBarTitleDisplayMode(.inline)
         }
 
+    }
+
+    //MARK: -SignOut
+    func handleSignOut() {
+        do {
+            try authManager.signOut()
+
+        } catch {
+            print("error")
+        }
     }
 }
 
