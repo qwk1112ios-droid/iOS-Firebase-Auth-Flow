@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WelcomePageView: View {
     @Environment(AuthenticationManager.self) var authManager
+    @Environment(\.dismiss) var dismiss 
 
     var body: some View {
         NavigationStack {
@@ -29,6 +30,28 @@ struct WelcomePageView: View {
                         )
                         .foregroundStyle(Color.primaryIcon)
                     Spacer()
+                
+                    //MARK: -Apple Button
+                    //TODO: -ADD Apple Button
+                    Button {
+                       // simulate SignIn
+                        authManager.authState = .signedIn
+                        dismiss()
+
+                    } label: {
+                        Text("SignIn")
+                            .foregroundStyle(Color.white)
+                            .frame(width: 260, height: 45)
+                            .background(Color.appButton)
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(
+                                        Color.white.opacity(0.25),
+                                        lineWidth: 1
+                                    )
+                            )
+                    }.padding()
                     //MARK: -Skip Button
                     if authManager.authState == .signedOut {
                         Button {
@@ -47,9 +70,6 @@ struct WelcomePageView: View {
                                 )
                         }.padding()
                     }
-                    //MARK: -Apple Button
-                    //TODO: -ADD Apple Button
-                    Text("Sign in to continue 🤗")
                 }
             }.navigationTitle("Welcome")
         }
