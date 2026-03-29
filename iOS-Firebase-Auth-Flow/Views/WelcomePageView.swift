@@ -7,10 +7,15 @@
 
 import FirebaseAuth
 import SwiftUI
+import GoogleSignInSwift
 
 struct WelcomePageView: View {
     @Environment(AuthenticationManager.self) var authManager
-    @Environment(\.dismiss) var dismiss 
+    @Environment(\.dismiss) var dismiss
+    let viewModel = GoogleSignInButtonViewModel(
+        scheme: .light,   // or .dark
+        style: .wide      // .standard, .icon
+    )
 
     var body: some View {
         NavigationStack {
@@ -31,8 +36,19 @@ struct WelcomePageView: View {
                         .foregroundStyle(Color.primaryIcon)
                     Spacer()
                 
-                    //MARK: -Apple Button
-                    //TODO: -ADD Apple Button
+                    //MARK: -Google Button
+                    //TODO: -ADD Google Button
+                    GoogleSignInButton(viewModel: viewModel) {
+                        Task{
+                            await signInWithGoogle()
+                            
+                            dismiss()
+                        }
+                    }
+                    .frame(width: 260, height: 45)
+                    .cornerRadius(12)
+                    
+                    
                     Button {
                        // simulate SignIn
                         authManager.authState = .signedIn
@@ -53,10 +69,11 @@ struct WelcomePageView: View {
                             )
                     }.padding()
                     //MARK: -Skip Button
-                    if authManager.authState == .signedOut {
+                    if authManager.authState == .signedOut  {
                         Button {
                             Task {
                                 await handleSignInAnonymously()
+                                
                             }
 
                         } label: {
@@ -90,6 +107,26 @@ extension WelcomePageView {
             print("SignInAnonymouslySuccess: \(result.user.uid)")
         } catch {
             print("SignInAnonymouslyError: \(error.localizedDescription)")
+        }
+    }
+}
+
+extension WelcomePageView {
+    // MARK: - Sign In with Google
+    
+    func signInWithGoogle() async {
+        do {
+            guard let user = try await  GoogleHelper.shared.signInWithGoogle() else {
+                return
+            }
+            let result = try await authManager.googleAuth(user)
+     
+            
+            print ("Google Sign In Success \(String(describing: result?.user.uid))")
+        }
+        catch {
+            print("GoogleSignInError: failed to sign in with Google, \(error))")
+                    // Here you can show error message to user.
         }
     }
 }

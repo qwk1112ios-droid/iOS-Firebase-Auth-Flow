@@ -26,32 +26,6 @@ struct InfoSettingView: View {
                         .padding()
                         
                         Button {
-                            handleSignOut()
-                        } label: {
-                            HStack(spacing: 4) {
-                                Text("SignOut demo only")
-                                    .font(.body.bold())
-                                
-                                Text("- not functional")
-                                    .font(.footnote)
-                                    .foregroundStyle(.white.opacity(0.7))
-                                
-                            }
-                            .foregroundStyle(Color.white)
-                            .frame(width: 260, height: 45)
-                            .background(Color.appButton)
-                            .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(
-                                        Color.white.opacity(0.25),
-                                        lineWidth: 1
-                                    )
-                            )
-                        }
-                        
-                        
-                        Button {
                             // signIn
                             showWelcomeView = true
                             
@@ -80,10 +54,21 @@ struct InfoSettingView: View {
                        Text("Successfully SignedIn ")
                             .font(.headline)
                             .padding()
+                        Text("Welcome to the app!")
+                            .font(.subheadline)
+                            .padding()
+                        
+                        VStack{
+                            
+                            Text(authManager.user?.displayName ?? "Name placeholder")
+                                .font(.headline)
+                            Text(authManager.user?.email ?? "Email placeholder")
+                                .font(.subheadline)
+                        }
                         
                         Button {
-                           // Simulate SignOut
-                            authManager.authState = .signedOut
+                            handleSignOut()
+                           
                         } label: {
                             HStack(spacing: 4) {
                                 Text("SignOut")
