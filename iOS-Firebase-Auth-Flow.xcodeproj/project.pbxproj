@@ -40,22 +40,9 @@
 		718AE3312F72055A0001597D /* iOS-Firebase-Auth-FlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Firebase-Auth-FlowUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7119088B2F7868AF005D2D6E /* Exceptions for "iOS-Firebase-Auth-Flow" folder in "iOS-Firebase-Auth-Flow" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 718AE3192F7205560001597D /* iOS-Firebase-Auth-Flow */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		718AE31C2F7205560001597D /* iOS-Firebase-Auth-Flow */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7119088B2F7868AF005D2D6E /* Exceptions for "iOS-Firebase-Auth-Flow" folder in "iOS-Firebase-Auth-Flow" target */,
-			);
 			path = "iOS-Firebase-Auth-Flow";
 			sourceTree = "<group>";
 		};
